@@ -1,8 +1,9 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 export function MagneticPhoto() {
   const ref = useRef<HTMLDivElement>(null);
+  const [isActive, setIsActive] = useState(false);
   
   // Motion values to track normalized mouse coordinates (-1 to 1)
   const x = useMotionValue(0);
@@ -21,22 +22,32 @@ export function MagneticPhoto() {
   const translateX = useTransform(smoothX, [-1, 1], [-5, 5]);
   const translateY = useTransform(smoothY, [-1, 1], [-5, 5]);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleMove = (e: React.MouseEvent<HTMLDivElement> | React.TouchEvent<HTMLDivElement>) => {
     if (!ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
     
+    let clientX, clientY;
+    if ('touches' in e) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else {
+      clientX = e.clientX;
+      clientY = e.clientY;
+    }
+    
     // Calculate distance from center, normalized to -1 to 1
-    const normalizedX = (e.clientX - centerX) / (rect.width / 2);
-    const normalizedY = (e.clientY - centerY) / (rect.height / 2);
+    const normalizedX = (clientX - centerX) / (rect.width / 2);
+    const normalizedY = (clientY - centerY) / (rect.height / 2);
     
     // Clamp values just in case
     x.set(Math.max(-1, Math.min(1, normalizedX)));
     y.set(Math.max(-1, Math.min(1, normalizedY)));
   };
 
-  const handleMouseLeave = () => {
+  const handleLeave = () => {
+    setIsActive(false);
     // Snap back to center
     x.set(0);
     y.set(0);
@@ -44,11 +55,19 @@ export function MagneticPhoto() {
 
   return (
     <div 
-      className="w-[70%] sm:w-[50%] md:w-4/12 aspect-square max-h-[40vh] md:max-h-[50vh] relative cursor-crosshair z-10 mb-2 md:mb-0 mx-auto md:mx-0"
+      className="w-[70%] sm:w-[50%] md:w-4/12 aspect-square max-h-[40vh] md:max-h-[50vh] relative cursor-crosshair z-10 mb-2 md:mb-0 mx-auto md:mx-0 touch-none"
       style={{ perspective: '1200px' }}
       ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={() => setIsActive(true)}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
+      onTouchStart={(e) => {
+        setIsActive(true);
+        handleMove(e);
+      }}
+      onTouchMove={handleMove}
+      onTouchEnd={handleLeave}
+      onTouchCancel={handleLeave}
     >
       <motion.div 
         className="w-full h-full border-[2px] border-[var(--color-border)] relative overflow-hidden group bg-[var(--color-base)]"
@@ -65,12 +84,21 @@ export function MagneticPhoto() {
           borderColor: "var(--color-text)",
           transition: { duration: 0.2 }
         }}
+        animate={isActive ? {
+          scale: 1.05,
+          boxShadow: "16px 16px 0px 0px var(--color-text)",
+          borderColor: "var(--color-text)",
+        } : {
+          scale: 1,
+          boxShadow: "8px 8px 0px 0px var(--color-border)",
+          borderColor: "var(--color-border)",
+        }}
         initial={{ boxShadow: "8px 8px 0px 0px var(--color-border)" }}
       >
         <img 
           src="https://github.com/JjorgeF.png" 
           alt="Jorge Felipe" 
-          className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500 scale-100 group-hover:scale-105"
+          className={`w-full h-full object-cover transition-all duration-500 ${isActive ? 'grayscale-0 opacity-100 scale-105' : 'grayscale opacity-80 scale-100'}`}
         />
       </motion.div>
 
