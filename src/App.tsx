@@ -128,7 +128,7 @@ export default function App() {
 
         
         <header className="absolute top-0 left-0 z-50 w-full p-4 md:p-10 flex justify-between items-center pointer-events-none h-20 md:h-28">
-          <div className="pointer-events-auto relative z-[60]">
+          <div className="flex items-center gap-4 pointer-events-auto relative z-[60]">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="w-12 h-12 flex items-center justify-start group shrink-0 relative"
@@ -137,6 +137,15 @@ export default function App() {
               <div className={`h-1 bg-[var(--color-text)] transition-all duration-300 ease-out absolute ${isMenuOpen ? 'w-0 opacity-0' : 'w-8 group-hover:w-10'}`} />
               <div className={`h-1 bg-[var(--color-text)] transition-all duration-300 ease-out absolute ${isMenuOpen ? 'w-8 -rotate-45' : 'w-6 group-hover:w-8 translate-y-2.5'}`} />
             </button>
+
+            <div className="w-10 h-10 md:w-12 md:h-12 border-2 border-[var(--color-border)] overflow-hidden shadow-[2px_2px_0_0_var(--color-border)]">
+              <img 
+                src="/src/assets/images/portfolio_favicon_1787053478585.jpg" 
+                alt="Logo" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </div>
           
           
