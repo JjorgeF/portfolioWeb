@@ -185,7 +185,7 @@ export default function App() {
             <button 
               onClick={toggleTheme}
               title="Trocar Tema"
-              className="after:absolute after:-inset-8 after:bg-transparent after:content-[''] w-9 h-9 md:w-14 md:h-14 rounded-full border-[3px] md:border-[4px] border-[var(--color-border)] flex items-center justify-center group hover:bg-[var(--color-text)] transition-colors overflow-hidden relative shrink-0 shadow-[4px_4px_0_0_var(--color-border)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
+              className="after:absolute after:-inset-8 after:bg-transparent after:content-[''] w-9 h-9 md:w-14 md:h-14 rounded-full border-[3px] md:border-[4px] border-[var(--color-border)] flex items-center justify-center group hover:bg-[var(--color-text)] transition-colors overflow-hidden relative shrink-0 shadow-[4px_4px_0_0_var(--color-border)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1"
             >
               <div className="w-1/2 h-full absolute left-0 bg-[var(--color-text)] group-hover:bg-[var(--color-surface)] transition-colors pointer-events-none" />
             </button>

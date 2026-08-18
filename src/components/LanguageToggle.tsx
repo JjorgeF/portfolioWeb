@@ -33,7 +33,7 @@ export function LanguageToggle({ language, toggleLanguage }: LanguageToggleProps
     <button
       onClick={toggleLanguage}
       title={language === 'pt' ? 'Mudar para Inglês' : 'Switch to Portuguese'}
-      className="after:absolute after:-inset-8 after:bg-transparent after:content-[''] w-9 h-9 md:w-14 md:h-14 rounded-full border-[3px] md:border-[4px] border-[var(--color-border)] flex items-center justify-center overflow-hidden relative shrink-0 shadow-[4px_4px_0_0_var(--color-border)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all group"
+      className="after:absolute after:-inset-8 after:bg-transparent after:content-[''] w-9 h-9 md:w-14 md:h-14 rounded-full border-[3px] md:border-[4px] border-[var(--color-border)] flex items-center justify-center overflow-hidden relative shrink-0 shadow-[4px_4px_0_0_var(--color-border)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none active:translate-x-1 active:translate-y-1 active:shadow-none transition-all group"
     >
       <div className={`absolute inset-0 transition-opacity duration-300 ${language === 'pt' ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}>
         <BrazilFlag />
