@@ -294,12 +294,9 @@ export default function App() {
                       className="absolute inset-0 w-full h-full"
                     >
                       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none opacity-5 w-full flex flex-col items-center justify-center">
-                         <h2 className="font-display font-bold text-[4rem] sm:text-[5rem] md:text-[8rem] text-[var(--color-text)] leading-none tracking-tighter whitespace-nowrap hidden md:block">
-                           {language === 'pt' ? 'DESLIZE E CLIQUE' : 'DRAG AND CLICK'}
-                         </h2>
-                         <h2 className="font-display font-bold text-[4.5rem] sm:text-[6rem] text-[var(--color-text)] leading-[0.85] tracking-tighter flex flex-col md:hidden">
+                         <h2 className="font-display font-bold text-[4.5rem] sm:text-[6rem] md:text-[9rem] xl:text-[11rem] text-[var(--color-text)] leading-[0.85] tracking-tighter flex flex-col">
                            <span>{language === 'pt' ? 'DESLIZE' : 'DRAG'}</span>
-                           <span>{language === 'pt' ? 'E CLIQUE' : 'AND CLICK'}</span>
+                           <span>{language === 'pt' ? 'CLIQUE' : 'CLICK'}</span>
                          </h2>
                       </div>
                       <ProjectConstellation 
@@ -339,9 +336,9 @@ export default function App() {
               >
                 <div className="absolute top-28 md:top-40 left-6 md:left-24 flex flex-col gap-4 md:gap-6 z-30 pointer-events-auto">
                   {[
-                    { label: 'EMAIL', color: 'hover:text-red-500', href: 'mailto:jorgefelipe0299@gmail.com' },
-                    { label: 'GITHUB', color: 'hover:text-[var(--color-text)]', href: 'https://github.com/JjorgeF' },
-                    { label: 'LINKEDIN', color: 'hover:text-blue-500', href: 'https://linkedin.com/in/jorgefelipe0299' }
+                    { label: 'EMAIL', color: 'hover:text-red-500 active:text-red-500', href: 'mailto:jorgefelipe0299@gmail.com' },
+                    { label: 'GITHUB', color: 'hover:text-[var(--color-text)] active:text-[var(--color-text)]', href: 'https://github.com/JjorgeF' },
+                    { label: 'LINKEDIN', color: 'hover:text-blue-500 active:text-blue-500', href: 'https://linkedin.com/in/jorgefelipe0299' }
                   ].map((link) => (
                     <a 
                       key={link.label}

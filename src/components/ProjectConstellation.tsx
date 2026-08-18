@@ -55,7 +55,19 @@ export function ProjectConstellation({ projects, onProjectClick }: ProjectConste
       .force('link', d3.forceLink<Node, Link>(links).id((d) => d.id).distance(120)) 
       .force('charge', d3.forceManyBody().strength(-300)) 
       .force('center', d3.forceCenter(width / 2, height / 2).strength(0.05)) 
-      .force('collide', d3.forceCollide().radius(50).iterations(3)); 
+      .force('collide', d3.forceCollide().radius(50).iterations(3))
+      .force('wander', () => {
+        const time = Date.now() / 1500;
+        nodes.forEach((node, i) => {
+          if (!node.fx && node.vx !== undefined && node.vy !== undefined) {
+             node.vx += Math.sin(time + i * 2) * 0.1;
+             node.vy += Math.cos(time + i * 2) * 0.1;
+          }
+        });
+      });
+
+    // Keep the simulation slightly warm so it never fully stops
+    simulation.alphaTarget(0.02); 
 
     
     const linkElements = d3
@@ -106,7 +118,7 @@ export function ProjectConstellation({ projects, onProjectClick }: ProjectConste
         d.fy = event.y;
       })
       .on('end', (event, d) => {
-        if (!event.active) simulation.alphaTarget(0);
+        if (!event.active) simulation.alphaTarget(0.02);
         d.fx = null;
         d.fy = null;
       });
