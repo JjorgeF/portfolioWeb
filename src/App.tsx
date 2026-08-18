@@ -293,9 +293,13 @@ export default function App() {
                       transition={{ duration: 0.3, ease: 'easeInOut' }}
                       className="absolute inset-0 w-full h-full"
                     >
-                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none opacity-5">
-                         <h2 className="font-display font-bold text-[4rem] sm:text-[6rem] md:text-[12rem] text-[var(--color-text)] leading-none tracking-tighter">
-                           DESLIZE
+                      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none opacity-5 w-full flex flex-col items-center justify-center">
+                         <h2 className="font-display font-bold text-[4rem] sm:text-[5rem] md:text-[8rem] text-[var(--color-text)] leading-none tracking-tighter whitespace-nowrap hidden md:block">
+                           {language === 'pt' ? 'DESLIZE E CLIQUE' : 'DRAG AND CLICK'}
+                         </h2>
+                         <h2 className="font-display font-bold text-[4.5rem] sm:text-[6rem] text-[var(--color-text)] leading-[0.85] tracking-tighter flex flex-col md:hidden">
+                           <span>{language === 'pt' ? 'DESLIZE' : 'DRAG'}</span>
+                           <span>{language === 'pt' ? 'E CLIQUE' : 'AND CLICK'}</span>
                          </h2>
                       </div>
                       <ProjectConstellation 
