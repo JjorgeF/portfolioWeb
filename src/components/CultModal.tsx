@@ -5,9 +5,10 @@ import { X, ArrowUpRight } from 'lucide-react';
 interface CultModalProps {
   project: Project;
   onClose: () => void;
+  language?: 'pt' | 'en';
 }
 
-export function CultModal({ project, onClose }: CultModalProps) {
+export function CultModal({ project, onClose, language = 'pt' }: CultModalProps) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -74,7 +75,7 @@ export function CultModal({ project, onClose }: CultModalProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[var(--color-text)] text-[var(--color-base)] px-8 py-4 font-display font-bold text-lg uppercase tracking-wide hover:bg-white hover:scale-105 transition-all"
             >
-              VIEW REPOSITORY <ArrowUpRight size={20} strokeWidth={2.5} />
+              {language === 'pt' ? 'VER REPOSITÓRIO' : 'VIEW REPOSITORY'} <ArrowUpRight size={20} strokeWidth={2.5} />
             </a>
           </div>
         </div>

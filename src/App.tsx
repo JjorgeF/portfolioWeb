@@ -361,6 +361,7 @@ export default function App() {
           <CultModal 
             project={selectedProject} 
             onClose={() => setSelectedProject(null)} 
+            language={language}
           />
         )}
       </AnimatePresence>

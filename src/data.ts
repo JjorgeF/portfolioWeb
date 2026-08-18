@@ -41,10 +41,10 @@ export const projects_pt: Project[] = [
     id: '5',
     title: 'Controle de Diárias',
     shortTitle: 'DIÁRIAS',
-    description: 'Sistema web especializado no controle e gerenciamento de diárias.',
-    technologies: ['TypeScript'],
+    description: 'Projeto web/app que permite aos coordenadores da empresa Liga Positiva controlar as diárias de funcionários, enviar escalas, acessar perfis individuais e enviar notificações.',
+    technologies: ['React.js', 'Python'],
     repoUrl: 'https://github.com/jorgefelipe0299/controleDeDiarias',
-    iconName: 'Calendar',
+    iconName: 'CalendarDays',
   },
   {
     id: '6',
@@ -54,6 +54,15 @@ export const projects_pt: Project[] = [
     technologies: ['JavaScript'],
     repoUrl: 'https://github.com/jorgefelipe0299/ClimasEAvioes',
     iconName: 'Plane',
+  },
+  {
+    id: '7',
+    title: 'Agenda Studio',
+    shortTitle: 'AGENDA STUDIO',
+    description: 'Projeto web/app para a GO Studio, permitindo o cadastro de clientes, agendamento de horários mensais, precificação de procedimentos e controle de ganhos mensais.',
+    technologies: ['React.js'],
+    repoUrl: 'https://github.com/jorgefelipe0299/agendaStudio',
+    iconName: 'Scissors',
   }
 ];
 
@@ -98,10 +107,10 @@ export const projects_en: Project[] = [
     id: '5',
     title: 'Per Diem Control',
     shortTitle: 'PER DIEM',
-    description: 'Specialized web system for tracking and managing per diem allowances.',
-    technologies: ['TypeScript'],
+    description: 'Web/app project that allows coordinators at Liga Positiva to manage employee daily wages, send schedules, access individual profiles, and send notifications.',
+    technologies: ['React.js', 'Python'],
     repoUrl: 'https://github.com/jorgefelipe0299/controleDeDiarias',
-    iconName: 'Calendar',
+    iconName: 'CalendarDays',
   },
   {
     id: '6',
@@ -111,6 +120,15 @@ export const projects_en: Project[] = [
     technologies: ['JavaScript'],
     repoUrl: 'https://github.com/jorgefelipe0299/ClimasEAvioes',
     iconName: 'Plane',
+  },
+  {
+    id: '7',
+    title: 'Agenda Studio',
+    shortTitle: 'AGENDA STUDIO',
+    description: 'Web/app project for GO Studio, allowing client registration, monthly appointment scheduling, procedure pricing, and monthly earnings tracking.',
+    technologies: ['React.js'],
+    repoUrl: 'https://github.com/jorgefelipe0299/agendaStudio',
+    iconName: 'Scissors',
   }
 ];
 
