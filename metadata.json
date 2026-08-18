@@ -1,6 +1,6 @@
 {
-  "name": "Dev Portfolio - Cult UI",
-  "description": "Portfólio de desenvolvedor com visual Cult UI, focado em apps e automações.",
+  "name": "Dev Portifolio - JF",
+  "description": "Portifólio pessoal focado em apps e automações.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
