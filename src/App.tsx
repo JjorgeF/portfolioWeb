@@ -9,11 +9,17 @@ import { AsciiCTA } from './components/AsciiCTA';
 import { SkillsMarquee } from './components/SkillsMarquee';
 import { LanguageToggle } from './components/LanguageToggle';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, User, Briefcase, Phone } from 'lucide-react';
 import { Project } from './types';
 
 type Tab = 'eu' | 'projetos' | 'contatos';
 const TABS: Tab[] = ['eu', 'projetos', 'contatos'];
+
+const TAB_ICONS: Record<Tab, React.ElementType> = {
+  eu: User,
+  projetos: Briefcase,
+  contatos: Phone
+};
 
 const FORMATIONS: Record<Tab, number[]> = {
   eu: [65, 45, 25, 0],
@@ -129,7 +135,7 @@ export default function App() {
 
         
         <header className="absolute top-0 left-0 z-50 w-full p-4 md:p-10 flex justify-between items-center pointer-events-none h-20 md:h-28">
-          <div className="flex items-center gap-4 pointer-events-auto relative z-[60]">
+          <div className="flex items-center gap-2 md:gap-4 pointer-events-auto relative z-[60]">
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="w-12 h-12 flex items-center justify-start group shrink-0 relative"
@@ -139,7 +145,7 @@ export default function App() {
               <div className={`h-1 bg-[var(--color-text)] transition-all duration-300 ease-out absolute ${isMenuOpen ? 'w-8 -rotate-45' : 'w-6 group-hover:w-8 translate-y-2.5'}`} />
             </button>
 
-            <div className="w-10 h-10 md:w-12 md:h-12 border-[2px] border-[var(--color-border)] bg-[var(--color-surface)] flex items-center justify-center shadow-[2px_2px_0_0_var(--color-border)] transition-colors">
+            <div className="w-9 h-9 md:w-12 md:h-12 border-[2px] border-[var(--color-border)] bg-[var(--color-surface)] flex items-center justify-center shadow-[2px_2px_0_0_var(--color-border)] transition-colors shrink-0">
               <svg viewBox="0 0 100 100" className="w-full h-full text-[var(--color-text)]">
                 <text x="50%" y="54%" textAnchor="middle" dominantBaseline="middle" fontFamily="Space Grotesk, sans-serif" fontWeight="800" fontSize="55" fill="currentColor" letterSpacing="-2">
                   JF
@@ -149,24 +155,24 @@ export default function App() {
           </div>
           
           
-          <div className={`flex flex-row items-center gap-3 md:gap-5 pointer-events-auto transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}>
+          <div className={`flex flex-row items-center gap-2 md:gap-5 pointer-events-auto transition-opacity duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}>
             <AnimatePresence>
               {activeTab === 'projetos' && (
                 <motion.div 
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 20 }}
-                  className="flex border-[2px] border-[var(--color-border)] p-1 bg-[var(--color-surface)] shadow-[4px_4px_0_0_var(--color-border)] h-10 md:h-14 items-center"
+                  className="flex border-[2px] border-[var(--color-border)] p-0.5 md:p-1 bg-[var(--color-surface)] shadow-[4px_4px_0_0_var(--color-border)] h-9 md:h-14 items-center shrink-0"
                 >
                   <button 
                     onClick={() => setViewMode('physics')}
-                    className={`h-full px-2 md:px-4 flex items-center font-sans text-[9px] md:text-xs font-bold uppercase tracking-widest transition-colors ${viewMode === 'physics' ? 'bg-[var(--color-text)] text-[var(--color-base)]' : 'text-[var(--color-text)] hover:bg-[var(--color-text)]/10'}`}
+                    className={`h-full px-1.5 md:px-4 flex items-center font-sans text-[9px] md:text-xs font-bold uppercase tracking-widest transition-colors ${viewMode === 'physics' ? 'bg-[var(--color-text)] text-[var(--color-base)]' : 'text-[var(--color-text)] hover:bg-[var(--color-text)]/10'}`}
                   >
                     Física
                   </button>
                   <button 
                     onClick={() => setViewMode('grid')}
-                    className={`h-full px-2 md:px-4 flex items-center font-sans text-[9px] md:text-xs font-bold uppercase tracking-widest transition-colors ${viewMode === 'grid' ? 'bg-[var(--color-text)] text-[var(--color-base)]' : 'text-[var(--color-text)] hover:bg-[var(--color-text)]/10'}`}
+                    className={`h-full px-1.5 md:px-4 flex items-center font-sans text-[9px] md:text-xs font-bold uppercase tracking-widest transition-colors ${viewMode === 'grid' ? 'bg-[var(--color-text)] text-[var(--color-base)]' : 'text-[var(--color-text)] hover:bg-[var(--color-text)]/10'}`}
                   >
                     Grid
                   </button>
@@ -179,7 +185,7 @@ export default function App() {
             <button 
               onClick={toggleTheme}
               title="Trocar Tema"
-              className="after:absolute after:-inset-8 after:bg-transparent after:content-[''] w-10 h-10 md:w-14 md:h-14 rounded-full border-[3px] md:border-[4px] border-[var(--color-border)] flex items-center justify-center group hover:bg-[var(--color-text)] transition-colors overflow-hidden relative shrink-0 shadow-[4px_4px_0_0_var(--color-border)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
+              className="after:absolute after:-inset-8 after:bg-transparent after:content-[''] w-9 h-9 md:w-14 md:h-14 rounded-full border-[3px] md:border-[4px] border-[var(--color-border)] flex items-center justify-center group hover:bg-[var(--color-text)] transition-colors overflow-hidden relative shrink-0 shadow-[4px_4px_0_0_var(--color-border)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
             >
               <div className="w-1/2 h-full absolute left-0 bg-[var(--color-text)] group-hover:bg-[var(--color-surface)] transition-colors pointer-events-none" />
             </button>
@@ -195,16 +201,18 @@ export default function App() {
                  transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
                  className="absolute top-0 left-0 w-full h-full flex flex-row items-center gap-2 md:gap-6 bg-[var(--color-surface)]/70 backdrop-blur-xl px-4 md:px-10 z-50 pointer-events-auto border-b-[2px] border-[var(--color-border)] shadow-[0_10px_30px_rgba(0,0,0,0.1)]"
               >
-                 <div className="w-12 h-12 shrink-0 md:mr-8" /> 
-                 <div className="flex flex-row items-center gap-1 md:gap-10 overflow-x-auto w-full no-scrollbar px-0 md:px-2" style={{ scrollbarWidth: 'none' }}>
-                    {TABS.map((tab) => (
+                  <div className="w-24 md:w-12 h-12 shrink-0 md:mr-8" /> 
+                  <div className="flex flex-row items-center gap-4 md:gap-10 overflow-x-auto w-full no-scrollbar px-0 md:px-2" style={{ scrollbarWidth: 'none' }}>
+                    {TABS.map((tab) => {
+                        const Icon = TAB_ICONS[tab];
+                        return (
                         <button
                           key={tab}
                           onClick={() => {
                             handleTabChange(tab);
                             setIsMenuOpen(false);
                           }}
-                          className={`relative flex items-center justify-center text-left font-display font-bold text-xs md:text-xl uppercase tracking-wider md:tracking-widest transition-all whitespace-nowrap px-2 md:px-3 py-2 shrink-0 ${
+                          className={`relative flex items-center justify-center text-left font-display font-bold text-xs md:text-xl uppercase tracking-wider md:tracking-widest transition-all whitespace-nowrap px-3 md:px-3 py-2 shrink-0 ${
                             activeTab === tab 
                               ? 'text-[var(--color-text)] scale-105 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]' 
                               : highlightTab === tab
@@ -212,9 +220,13 @@ export default function App() {
                                 : 'text-[var(--color-text)]/40 hover:text-[var(--color-text)] hover:scale-105'
                           }`}
                         >
-                          <span className="relative z-10">{t.tabs[tab]}</span>
+                          <span className="hidden md:block relative z-10">{t.tabs[tab]}</span>
+                          <span className="md:hidden relative z-10 flex items-center justify-center">
+                            <Icon className="w-5 h-5" strokeWidth={2.5} />
+                          </span>
                         </button>
-                     ))}
+                      );
+                    })}
                  </div>
               </motion.div>
             )}
