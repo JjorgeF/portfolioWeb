@@ -1,13 +1,29 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useAnimation } from 'motion/react';
+import { 
+  Atom, 
+  Hexagon, 
+  FileCog, 
+  TerminalSquare, 
+  Smartphone, 
+  Code, 
+  Container, 
+  Github, 
+  Database, 
+  Terminal 
+} from 'lucide-react';
 
-const SKILLS = [
-  { name: 'React.js', short: 'Re' },
-  { name: 'Node.js', short: 'No' },
+const SKILLS: { name: string; icon?: any; short?: string }[] = [
+  { name: 'React.js', icon: Atom },
+  { name: 'Node.js', icon: Hexagon },
   { name: 'C / C++', short: 'C++' },
-  { name: 'Python', short: 'Py' },
-  { name: 'Kotlin', short: 'Kt' },
-  { name: 'TypeScript', short: 'TS' },
+  { name: 'Python', icon: TerminalSquare },
+  { name: 'Kotlin', icon: Smartphone },
+  { name: 'TypeScript', icon: Code },
+  { name: 'Docker', icon: Container },
+  { name: 'Git & GitHub', icon: Github },
+  { name: 'MySQL', icon: Database },
+  { name: 'Linux', icon: Terminal },
 ];
 
 export function SkillsMarquee() {
@@ -58,19 +74,26 @@ export function SkillsMarquee() {
         onHoverEnd={handleDragEnd}
       >
         {/* Multiplicamos as skills para garantir espaço de sobra para o drag e o loop */}
-        {[...SKILLS, ...SKILLS, ...SKILLS, ...SKILLS, ...SKILLS].map((skill, i) => (
-          <div 
-            key={i} 
-            className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-1.5 border-[2px] border-[var(--color-border)] bg-[var(--color-base)] shadow-[2px_2px_0_0_var(--color-border)] hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_var(--color-border)] transition-all shrink-0"
-          >
-            <div className="w-6 h-6 md:w-8 md:h-8 rounded-full border-[2px] border-[var(--color-border)] flex items-center justify-center font-display font-black text-[10px] md:text-[11px] bg-[var(--color-surface)] text-[var(--color-text)]">
-              {skill.short}
+        {[...SKILLS, ...SKILLS, ...SKILLS, ...SKILLS, ...SKILLS].map((skill, i) => {
+          const Icon = skill.icon;
+          return (
+            <div 
+              key={i} 
+              className="flex items-center gap-2 md:gap-3 px-3 md:px-4 py-1.5 border-[2px] border-[var(--color-border)] bg-[var(--color-base)] shadow-[2px_2px_0_0_var(--color-border)] hover:-translate-y-0.5 hover:shadow-[3px_3px_0_0_var(--color-border)] transition-all shrink-0"
+            >
+              <div className="w-6 h-6 md:w-8 md:h-8 rounded-full border-[2px] border-[var(--color-border)] flex items-center justify-center bg-[var(--color-surface)] text-[var(--color-text)]">
+                {Icon ? (
+                  <Icon size={14} strokeWidth={2.5} className="md:w-4 md:h-4" />
+                ) : (
+                  <span className="font-display font-black text-[10px] md:text-[12px]">{skill.short}</span>
+                )}
+              </div>
+              <span className="font-display font-bold uppercase tracking-widest text-[var(--color-text)] text-xs md:text-sm">
+                {skill.name}
+              </span>
             </div>
-            <span className="font-display font-bold uppercase tracking-widest text-[var(--color-text)] text-xs md:text-sm">
-              {skill.name}
-            </span>
-          </div>
-        ))}
+          );
+        })}
       </motion.div>
     </div>
   );
