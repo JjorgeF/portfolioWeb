@@ -138,13 +138,12 @@ export default function App() {
               <div className={`h-1 bg-[var(--color-text)] transition-all duration-300 ease-out absolute ${isMenuOpen ? 'w-8 -rotate-45' : 'w-6 group-hover:w-8 translate-y-2.5'}`} />
             </button>
 
-            <div className="w-10 h-10 md:w-12 md:h-12 border-2 border-[var(--color-border)] overflow-hidden shadow-[2px_2px_0_0_var(--color-border)]">
-              <img 
-                src="/src/assets/images/portfolio_favicon_1787053478585.jpg" 
-                alt="Logo" 
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+            <div className="w-10 h-10 md:w-12 md:h-12 border-[2px] border-[var(--color-border)] bg-[var(--color-surface)] flex items-center justify-center shadow-[2px_2px_0_0_var(--color-border)] transition-colors">
+              <svg viewBox="0 0 100 100" className="w-full h-full text-[var(--color-text)]">
+                <text x="50%" y="54%" textAnchor="middle" dominantBaseline="middle" fontFamily="Space Grotesk, sans-serif" fontWeight="800" fontSize="55" fill="currentColor" letterSpacing="-2">
+                  JF
+                </text>
+              </svg>
             </div>
           </div>
           
