@@ -50,12 +50,14 @@ export function ProjectConstellation({ projects, onProjectClick }: ProjectConste
     }
 
     
+    const isMobile = width < 768;
+
     const simulation = d3
       .forceSimulation<Node>(nodes)
-      .force('link', d3.forceLink<Node, Link>(links).id((d) => d.id).distance(120)) 
-      .force('charge', d3.forceManyBody().strength(-300)) 
+      .force('link', d3.forceLink<Node, Link>(links).id((d) => d.id).distance(isMobile ? 80 : 120)) 
+      .force('charge', d3.forceManyBody().strength(isMobile ? -150 : -300)) 
       .force('center', d3.forceCenter(width / 2, height / 2).strength(0.05)) 
-      .force('collide', d3.forceCollide().radius(50).iterations(3))
+      .force('collide', d3.forceCollide().radius(isMobile ? 40 : 50).iterations(3))
       .force('wander', () => {
         const time = Date.now() / 1500;
         nodes.forEach((node, i) => {
@@ -93,8 +95,8 @@ export function ProjectConstellation({ projects, onProjectClick }: ProjectConste
         const el = nodesRef.current.get(node.id);
         if (el && node.x !== undefined && node.y !== undefined) {
           
-          const paddingX = 90;
-          const paddingY = 80;
+          const paddingX = isMobile ? 45 : 90;
+          const paddingY = isMobile ? 55 : 80;
           node.x = Math.max(paddingX, Math.min(width - paddingX, node.x));
           node.y = Math.max(paddingY, Math.min(height - paddingY, node.y));
           
