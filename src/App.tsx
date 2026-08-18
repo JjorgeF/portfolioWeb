@@ -6,6 +6,7 @@ import { ProjectGridCard } from './components/ProjectGridCard';
 import { MagneticPhoto } from './components/MagneticPhoto';
 import { MagneticBackground } from './components/MagneticBackground';
 import { AsciiCTA } from './components/AsciiCTA';
+import { SkillsMarquee } from './components/SkillsMarquee';
 import { LanguageToggle } from './components/LanguageToggle';
 import { AnimatePresence, motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
@@ -234,7 +235,7 @@ export default function App() {
               >
                 {/* Top Section: Text and Photo */}
                 <div className="w-full flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-8 md:gap-12 mt-0 md:mt-8">
-                  <div className="w-full md:w-1/2 flex flex-col text-left md:mt-12 lg:mt-16">
+                  <div className="w-full md:w-1/2 flex flex-col text-left md:mt-12 lg:mt-16 gap-6 md:gap-10">
                     <h1 className="font-display font-bold text-xl md:text-2xl lg:text-3xl leading-[1.4] tracking-tighter text-[var(--color-text)]">
                       {t.greeting1} 
                       <span className="inline-block mx-2 px-3 py-1 bg-[var(--color-text)] text-[var(--color-surface)] -skew-x-12 hover:skew-x-0 hover:scale-110 transition-all cursor-crosshair">
@@ -242,17 +243,20 @@ export default function App() {
                       </span>
                       {t.greeting2}
                     </h1>
+                    
+                    <div className="w-full flex justify-start">
+                      <AsciiCTA targetText={t.cta} onClick={() => {
+                        setIsMenuOpen(true);
+                        setHighlightTab('projetos');
+                        setTimeout(() => setHighlightTab(null), 3500);
+                      }} />
+                    </div>
                   </div>
                   <MagneticPhoto />
                 </div>
 
-                {/* CTA ASCII */}
-                <div className="w-full flex md:flex-1 items-center md:items-end justify-center mt-6 md:mt-0 pt-0 md:pt-24 pb-4 md:pb-8">
-                  <AsciiCTA targetText={t.cta} onClick={() => {
-                    setIsMenuOpen(true);
-                    setHighlightTab('projetos');
-                    setTimeout(() => setHighlightTab(null), 3500);
-                  }} />
+                <div className="w-full mt-auto flex flex-col pb-4">
+                  <SkillsMarquee />
                 </div>
               </motion.div>
             )}

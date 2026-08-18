@@ -29,9 +29,7 @@ export function AsciiCTA({ onClick, targetText = "VEJA MEUS PROJETOS" }: { onCli
 
   useEffect(() => {
     scramble();
-    const interval = window.setInterval(scramble, 4000);
     return () => {
-      window.clearInterval(interval);
       if (intervalRef.current !== null) {
         window.clearInterval(intervalRef.current);
       }
