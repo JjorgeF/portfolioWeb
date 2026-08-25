@@ -136,3 +136,69 @@ export const projects = {
   pt: projects_pt,
   en: projects_en
 };
+
+export const certificates = [
+  {
+    id: '1',
+    title: 'Claude e Python: desenvolva assistentes com a API da Anthropic',
+    institution: 'Alura',
+    skills: ['Python', 'Claude API', 'Anthropic', 'AI Assistants'],
+    date: '2026',
+    verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910', // Placeholder until real link is provided
+    iconName: 'Bot'
+  },
+  {
+    id: '2',
+    title: 'Python: Persistência de dados com arquivos, bancos de dados e APIs REST',
+    institution: 'Alura',
+    skills: ['Python', 'SQLite', 'PostgreSQL', 'FastAPI'],
+    date: 'Ago 2026',
+    verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910',
+    iconName: 'TerminalSquare'
+  },
+  {
+    id: '3',
+    title: 'Looker Studio: parâmetros e combinações de dados',
+    institution: 'Alura',
+    skills: ['Looker Studio', 'Data Analysis', 'BI'],
+    date: '2026',
+    verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910', // Placeholder
+    iconName: 'BarChart3'
+  },
+  {
+    id: '4',
+    title: 'Looker Studio: trabalhando com funções e filtros',
+    institution: 'Alura',
+    skills: ['Looker Studio', 'Data Filtering', 'Functions'],
+    date: '2026',
+    verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910', // Placeholder
+    iconName: 'Filter'
+  },
+  {
+    id: '5',
+    title: 'Power BI: análises avançadas com DAX',
+    institution: 'Alura',
+    skills: ['Power BI', 'DAX', 'Advanced Analytics'],
+    date: '2026',
+    verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910', // Placeholder
+    iconName: 'LineChart'
+  },
+  {
+    id: '6',
+    title: 'Looker Studio: visualização de dados',
+    institution: 'Alura',
+    skills: ['Looker Studio', 'Data Visualization', 'Dashboards'],
+    date: '2026',
+    verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910', // Placeholder
+    iconName: 'PieChart'
+  },
+  {
+    id: '7',
+    title: 'Looker Studio: criando o primeiro relatório',
+    institution: 'Alura',
+    skills: ['Looker Studio', 'Reporting', 'Data Viz'],
+    date: '2026',
+    verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910', // Placeholder
+    iconName: 'FileText'
+  }
+];
