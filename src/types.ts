@@ -7,3 +7,13 @@ export interface Project {
   repoUrl: string;
   iconName: string;
 }
+
+export interface Certificate {
+  id: string;
+  title: string;
+  institution: string;
+  skills: string[];
+  date: string;
+  verificationLink: string;
+  iconName: string;
+}
