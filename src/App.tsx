@@ -9,27 +9,30 @@ import { AsciiCTA } from './components/AsciiCTA';
 import { SkillsMarquee } from './components/SkillsMarquee';
 import { LanguageToggle } from './components/LanguageToggle';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowUpRight, User, Briefcase, Phone } from 'lucide-react';
+import { ArrowUpRight, User, Briefcase, Phone, Award } from 'lucide-react';
 import { Project } from './types';
+import { Certificates } from './components/Certificates';
 
-type Tab = 'eu' | 'projetos' | 'contatos';
-const TABS: Tab[] = ['eu', 'projetos', 'contatos'];
+type Tab = 'eu' | 'projetos' | 'certificados' | 'contatos';
+const TABS: Tab[] = ['eu', 'projetos', 'certificados', 'contatos'];
 
 const TAB_ICONS: Record<Tab, React.ElementType> = {
   eu: User,
   projetos: Briefcase,
+  certificados: Award,
   contatos: Phone
 };
 
 const FORMATIONS: Record<Tab, number[]> = {
   eu: [65, 45, 25, 0],
   projetos: [10, 10, 10, 10],
+  certificados: [30, 30, 30, 30],
   contatos: [0, 25, 50, 75],
 };
 
 const TRANSLATIONS = {
   pt: {
-    tabs: { eu: 'EU', projetos: 'PROJETOS', contatos: 'CONTATOS' },
+    tabs: { eu: 'EU', projetos: 'PROJETOS', certificados: 'CERTIFICADOS', contatos: 'CONTATOS' },
     viewPhysics: 'Física',
     viewGrid: 'Grid',
     greeting1: 'Opa, tudo certo? Me chamo ',
@@ -37,7 +40,7 @@ const TRANSLATIONS = {
     cta: 'VEJA MEUS PROJETOS'
   },
   en: {
-    tabs: { eu: 'ME', projetos: 'PROJECTS', contatos: 'CONTACTS' },
+    tabs: { eu: 'ME', projetos: 'PROJECTS', certificados: 'CERTIFICATES', contatos: 'CONTACTS' },
     viewPhysics: 'Physics',
     viewGrid: 'Grid',
     greeting1: "Hey, what's up? I'm ",
@@ -321,6 +324,22 @@ export default function App() {
                     </motion.div>
                   )}
                 </AnimatePresence>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence>
+            {!isTransitioning && activeTab === 'certificados' && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="absolute inset-0 pt-24 md:pt-36 pb-12 overflow-y-auto pointer-events-auto z-40"
+              >
+                <div className="w-full max-w-5xl mx-auto px-4 md:px-12">
+                  <Certificates language={language} />
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
