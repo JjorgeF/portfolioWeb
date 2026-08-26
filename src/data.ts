@@ -167,15 +167,6 @@ export const certificates = [
   },
   {
     id: '4',
-    title: 'Looker Studio: trabalhando com funções e filtros',
-    institution: 'Alura',
-    skills: ['Looker Studio', 'Data Filtering', 'Functions'],
-    date: '2026',
-    verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910', // Placeholder
-    iconName: 'Filter'
-  },
-  {
-    id: '5',
     title: 'Power BI: análises avançadas com DAX',
     institution: 'Alura',
     skills: ['Power BI', 'DAX', 'Advanced Analytics'],
@@ -184,21 +175,12 @@ export const certificates = [
     iconName: 'LineChart'
   },
   {
-    id: '6',
+    id: '5',
     title: 'Looker Studio: visualização de dados',
     institution: 'Alura',
     skills: ['Looker Studio', 'Data Visualization', 'Dashboards'],
     date: '2026',
     verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910', // Placeholder
     iconName: 'PieChart'
-  },
-  {
-    id: '7',
-    title: 'Looker Studio: criando o primeiro relatório',
-    institution: 'Alura',
-    skills: ['Looker Studio', 'Reporting', 'Data Viz'],
-    date: '2026',
-    verificationLink: 'https://cursos.alura.com.br/certificate/917f4587-4053-4f11-9fa9-95927a9e8910', // Placeholder
-    iconName: 'FileText'
   }
 ];
